@@ -12,9 +12,9 @@ Created on 18 de ago de 2021
 import time
 import threading
 import logging
-from srvsys.srvc_utils import __templogger_util__, __read_cfg__
-from srvsys.srvc_common import SrvcCommon
-from __init__ import __genesis_msg1__, __genesis_msg2__, __genesis_msg5__, \
+from srvcresources.srvc_utils import __templogger_util__, __read_cfg__
+from srvcresources.srvc_common import SrvcCommon
+from srvcresources.__init__ import __genesis_msg1__, __genesis_msg2__, __genesis_msg5__, \
     __genesis_msg7__
 
 
