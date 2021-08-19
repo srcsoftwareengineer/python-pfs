@@ -68,4 +68,4 @@ class SrvcCommon(object):
             logger = logging.getLogger(logger_srvcname)
             return logger
         except BaseException as excpt:
-            raise excpt
+            self.log.exception("Exception on create log instance: %s" % excpt)
