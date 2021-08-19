@@ -1,0 +1,55 @@
+#
+# Tutorial for this config structure: https://docs.python.org/3/library/logging.config.html
+# All keys and values are covered in this link
+# https://stackoverflow.com/questions/64951836/python-logging-attributeerror-module-logging-has-no-attribute-handlers
+#
+exec_main:
+  version: 1
+  datefmt: "%Y-%m-%dT%H:%M:%S%z"
+  deploy: "%(asctime)"
+  srvc_name: MainSrvc
+  description: Config file for System Bootstrap
+  copyright: "'Copyright: Sandro Regis Cardoso %s' %(deploy)"
+  initial_message: "Starting Python Project From Scratch"
+  cfg_acron1: -c
+  cfg_acron2: --srvc_cfg
+  help: Config file for logger, queue, databases, etc.
+  required: false
+  # default location and file name case not specified on parameter cfg_acron2
+  default: ./cfg/srvcbootstrapcfg.yaml
+logg:
+  disable_existing_loggers: false
+  logger_name: MainLogger
+  # initial_message: '%s load file: %s for service %s'
+  initial_message: "'%s loaded file: %s and started service %s' % (srvc_name, sfg_acron2, logger_name)"
+  formatters:
+    # will be referenced on key 'handlers' below
+    normal:
+      datefmt: "%Y-%m-%dT%H:%M:%S%z"
+      format: "%(asctime)s %(name)-16s %(levelname)-8s %(threadName)-20s %(funcName)-24s %(message)s"
+  handlers:
+    console:
+      class: logging.StreamHandler
+      level: DEBUG
+      formatter: normal
+      stream: ext://sys.stdout
+    file_handler:
+      backupCount: 30
+      class: logging.handlers.TimedRotatingFileHandler
+      delay: true
+      encoding: utf8
+      filename: ./logs/main_srvc.log
+      formatter: normal
+      interval: 1
+      level: DEBUG
+      when: midnight
+  root:
+    handlers:
+    - file_handler
+    - console
+    #- Logstash_handler
+    # development level
+    level: DEBUG
+    # production level
+    # level: INFO
+  version: 1
