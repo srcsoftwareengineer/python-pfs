@@ -8,23 +8,32 @@ Created on 7 de ago de 2021
 @author: Sandro Regis Cardoso | Software Engineer
 @contact: src.softwareengineer@gmail.com
 '''
+
 import yaml
-
 import logging
-
-from .__init__ import __project_name__, __srvc_name__, __repository__, \
-    __version__, __author__, __contact__, __license__, __data_deploy__, \
-    __country__
-# , __genesis_msg1__, __genesis_msg2__
+from .__init__ import __license__
+from .__init__ import __repository__
+from .__init__ import __project_name__
+from .__init__ import __version__
+from .__init__ import __srvc_name__
+from .__init__ import __data_deploy__
+from .__init__ import __author__
+from .__init__ import __contact__
+from .__init__ import __country__
 
 
 def __templogger_util__():
     '''
-    docstring
+    Create temporary logger instance to record events until read config params
+    @rtype: Logger
     '''
     templog = None
 
     def mount_sector(sector_name: str):
+        '''
+        Mount header blocks to beauty log file
+        @rtype: string
+        '''
         lastcursorposition = 185
         breakline = '\n'
         linediv = '#'
@@ -42,6 +51,7 @@ def __templogger_util__():
         templog = logging.getLogger('tlogger')
         templog.setLevel(logging.INFO)
         fh = logging.FileHandler('./logs/main_srvc.log')
+        fh.set_name("fh_tlog")
         fh.setLevel(logging.INFO)
         formatter = logging.Formatter("%(asctime)s %(name)-16s %(levelname)-8s \
     %(threadName)-20s %(funcName)-24s %(message)s", "%Y-%m-%dT%H:%M:%S%z")
@@ -67,10 +77,11 @@ def __templogger_util__():
         templog.exception(excpt)
 
 
-def __read_cfg__(log: logging):
+def __read_cfg__(log: logging) -> dict:
     '''
     @todo:    Recovery cfg_file (config file path and name) from database
     @author:  Sandro Regis Cardoso | Software Engineer
+    @rtype:   dict
     '''
     try:
         path = './cfg'

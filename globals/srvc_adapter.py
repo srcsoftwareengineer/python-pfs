@@ -4,7 +4,7 @@
 '''
 Created on 10 de ago de 2021
 @module: globals.srvc_adapter
-@summary: Adapter Pattern for wide srvsys resources
+@summary: Adapter Pattern for wide srvcresources resources
 @author: Sandro Regis Cardoso | Software Engineer
 @contact: src.softwareengineer@gmail.com
 '''

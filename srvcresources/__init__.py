@@ -15,7 +15,7 @@ __genesis_msg1__ = '%s is awaked and starting running processes' \
     % __srvc_name__
 __genesis_msg2__ = '%s reading config file' % __srvc_name__
 __genesis_msg3__ = 'Config file loaded and registered to global'
-__genesis_msg4__ = 'Setting and parsing MainSrvc Arguments'
+__genesis_msg4__ = 'MainSrvc will set and parse bootstrap arguments'
 __genesis_msg5__ = 'All MainSrvc process are done!'
 __genesis_msg6__ = 'Destroying Temporary Logger Service'
 __genesis_msg7__ = '%s waitting for instructions...' % __srvc_name__
