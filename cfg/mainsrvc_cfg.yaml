@@ -16,7 +16,7 @@ exec_main:
   help: Config file for logger, queue, databases, etc.
   required: false
   # default location and file name case not specified on parameter cfg_acron2
-  default: ./cfg/srvcbootstrapcfg.yaml
+  default: ./cfg/mainsrvc_cfg.yaml
 logg:
   disable_existing_loggers: false
   logger_name: MainLogger
@@ -26,7 +26,7 @@ logg:
     # will be referenced on key 'handlers' below
     normal:
       datefmt: "%Y-%m-%dT%H:%M:%S%z"
-      format: "%(asctime)s %(name)-16s %(levelname)-8s %(threadName)-20s %(funcName)-24s %(message)s"
+      format: "%(asctime)s %(name)-16s \t%(levelname)-8s %(threadName)-20s %(funcName)-24s %(message)s"
   handlers:
     console:
       class: logging.StreamHandler
