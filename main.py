@@ -1,4 +1,4 @@
-# !/usr/bin/python3
+#!/usr/bin/python3
 # -*- encoding: utf-8 -*-
 
 '''
@@ -52,8 +52,8 @@ def do_bootstrap():
 def dispatcher(arg: list, log: logging):
     while arg['stop'] is not True:
         try:
-            log.info("Dispatcher is waiting for instructions from MainSrvc.......")
-            time.sleep(10)
+            log.info("Dispatcher is waiting for instructions from MainSrvc...")
+            time.sleep(4)
         except BaseException as excpt:
             log.exception(excpt)
         finally:
@@ -68,7 +68,7 @@ def main(*args, **kwargs):  # @UnusedVariable
     while True:
         try:
             log.info(__genesis_msg7__)
-            time.sleep(9.75)
+            time.sleep(3.75)
             if thread._started._flag is False:
                 thread.start()
         except KeyboardInterrupt as keyexcpt:
